@@ -1681,3 +1681,58 @@ footer{
 .hero-title span{
     color:#D4A373;
 }
+/* ==========================================
+        CUSTOMER WELCOME
+========================================== */
+
+.welcome-user {
+    color: #D4A373;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    animation: welcomeAppear 1.2s ease;
+}
+
+@keyframes welcomeAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+/* ==========================================
+        CUSTOMER WELCOME
+========================================== */
+
+.welcome-user {
+    color: #D4A373;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+
+    animation: welcomeAppear 1.2s ease;
+}
+
+@keyframes welcomeAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}

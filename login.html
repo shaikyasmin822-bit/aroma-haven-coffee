@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aroma Haven - Welcome</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    rgba(45, 25, 15, 0.65),
+                    rgba(75, 40, 20, 0.65)
+                ),
+                url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Main Card */
+
+        .login-card {
+            width: 430px;
+            padding: 45px 40px;
+
+            background: rgba(255, 248, 240, 0.96);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.45);
+
+            text-align: center;
+
+            animation: appear 1s ease;
+        }
+
+        /* Coffee Icon */
+
+        .coffee-icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+
+            animation: floatCup 3s ease-in-out infinite;
+        }
+
+        /* Logo */
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            color: #5c3d2e;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #8b6b58;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Labels */
+
+        label {
+            display: block;
+            text-align: left;
+
+            color: #5c3d2e;
+
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        /* Input */
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+
+            margin-bottom: 20px;
+
+            border: 2px solid #e5c9ad;
+            border-radius: 12px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            background: #fffaf5;
+
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #c68b59;
+
+            box-shadow:
+                0 0 12px rgba(198, 139, 89, 0.3);
+        }
+
+        /* Button */
+
+        button {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: linear-gradient(
+                135deg,
+                #c68b59,
+                #8b5e3c
+            );
+
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(91, 52, 30, 0.3);
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(91, 52, 30, 0.45);
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        /* Message */
+
+        #message {
+            margin-top: 18px;
+
+            color: #6b4226;
+
+            font-weight: bold;
+        }
+
+        /* Footer */
+
+        .footer {
+            margin-top: 25px;
+
+            color: #9a7a66;
+
+            font-size: 13px;
+        }
+
+        /* Animations */
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+        @keyframes floatCup {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
+        }
+
+        /* Mobile */
+
+        @media (max-width: 500px) {
+
+            .login-card {
+                width: 90%;
+                padding: 35px 25px;
+            }
+
+            .logo {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="login-card">
+
+        <div class="coffee-icon">☕</div>
+
+        <h1 class="logo">
+            Aroma Haven
+        </h1>
+
+        <p class="subtitle">
+            Welcome to your premium coffee experience
+        </p>
+
+
+        <form id="loginForm">
+
+            <label for="name">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label for="phone">
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required
+            >
+
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <button type="submit">
+                ☕ Enter Aroma Haven
+            </button>
+
+        </form>
+
+
+        <p id="message"></p>
+
+        <div class="footer">
+            Freshly brewed moments, made with love ❤️
+        </div>
+
+    </div>
+
+<script>
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        if (name === "" || phone === "" || email === "") {
+            alert("Please fill all details.");
+            return;
+        }
+
+        // Save customer information
+        localStorage.setItem("customerName", name);
+        localStorage.setItem("customerPhone", phone);
+        localStorage.setItem("customerEmail", email);
+
+        // Go to your main coffee website
+        window.location.href = "./index.html";
+    });
+</script>
+
+</body>
+</html>

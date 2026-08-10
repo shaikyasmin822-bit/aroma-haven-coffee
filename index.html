@@ -46,7 +46,6 @@
     <link rel="stylesheet" href="css/responsive.css">
 
 </head>
-
 <body>
 
     <!-- ===================================
@@ -133,8 +132,6 @@
 
             <div class="nav-icons">
 
-                <!-- DARK MODE -->
-
                 <button id="theme-toggle" class="icon-btn blast-btn">
 
                     <i class="fa-solid fa-moon"></i>
@@ -182,7 +179,7 @@
         <div class="home-content" data-aos="fade-right">
 
             <h3>WELCOME TO</h3>
-
+            <p id="welcomeUser" class="welcome-user"></p>
             <h1 class="hero-title">
     <span>Aroma Haven</span><br>
     Coffee
@@ -646,7 +643,7 @@
             </a>
 
             <a href="images/gallery/gallery3.jpg" class="glightbox gallery-item">
-                <img src="https://wallpapercave.com/wp/wp3794535.jpg" alt="Coffee Image 3">
+                <img src="https://media.istockphoto.com/id/523034715/photo/coffee-cup-and-jute-sack-full-of-coffee-beans-3.jpg?s=170667a&w=0&k=20&c=sr-ZTvf1hesP-HUwoXhex1DUFI9-CfMnqmlUyxJIhIM=" alt="Coffee Image 3">
             </a>
 
             <a href="images/gallery/gallery4.jpg" class="glightbox gallery-item">
@@ -657,7 +654,7 @@
                 <img src="https://img.freepik.com/premium-photo/coffee-8mp-jpeg_555090-34839.jpg" alt="Coffee Image 5">
             </a>
             <a href="images/gallery/gallery6.jpg" class="glightbox gallery-item">
-                <img src="https://img.freepik.com/premium-photo/coffee-8mp-jpeg_555090-34839.jpg" alt="Coffee Image 5">
+                <img src="https://i.pinimg.com/originals/64/28/b8/6428b83371f8b1774fba375d1050e821.jpg" alt="Coffee Image 5">
             </a>
             <a href="images/gallery/gallery7.jpg" class="glightbox gallery-item">
                 <img src="https://img.freepik.com/premium-photo/cup-hot-black-coffee-with-steam-isolated_118124-52846.jpg?w=2000">
@@ -699,7 +696,7 @@
 
             <div class="team-card" data-aos="zoom-in">
 
-                <img src="images/team/manager.jpg" alt="Manager">
+                <img src="https://images.openai.com/static-rsc-4/iIX6qQFX4jwFy4CwYcUMvUaIijR4SGfRPhCYc2TOO07FVqaWAKdX20UcrG5JhX97gsOLFUu2PTm2xJ1egQkW6ufH2AtLkFJ-DThBONf6HiHwZQFHYv3SQD2ve-sVNgXhg5anMcFFc_a0APlXgPHUJRhiqzCwOtHZnFe2_Y9zZhPo_SoTcDNmiaXCrkBsX4v_?purpose=inline" alt="Manager">
 
                 <h3>Emma Wilson</h3>
 
@@ -731,7 +728,7 @@
 
             <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
 
-                <img src="images/team/barista.jpg" alt="Barista">
+                <img src="https://images.openai.com/static-rsc-4/Q7lFWZ7kFO872PK6YKibCwcDMTn0MHFJqMliWnh52h5Rx8g5Hf5k-EMKKgIyPOr55v4luIJSCp3eiyeCvC1fmHiNjRfgixDgWiXK5wjsmuKr2rLGeXbrEBUZKSiRKdEZcC5_HUU9Cb9dP7dZv-qB0NGuut_7I4o_SSC3B7cVieQY-U8xMqXl5qixXy-Vz_I_?purpose=inline" alt="Barista">
 
                 <h3>James Carter</h3>
 
@@ -763,7 +760,7 @@
 
             <div class="team-card" data-aos="zoom-in" data-aos-delay="200">
 
-                <img src="images/team/chef.jpg" alt="Chef">
+                <img src="https://images.openai.com/static-rsc-4/ZBlTnVuCyQhm8Fou_gEKeONv0obDl4CREveLn9pgXjtIA3F2Yva-v3vvlWuiCV_lO1yJRKGkMKO4HZu6W7pEQ-VWyyUNg2sC5ZG_F42tlCfg6Y9GgP9HMztK_7D2NTPAkjczwb5Cgl--ZuSVRqyY979SCYPg3BuqMILVkf7LBl0?purpose=inline" alt="Chef">
 
                 <h3>Sophia Brown</h3>
 
@@ -790,12 +787,11 @@
                 </div>
 
             </div>
-
             <!-- Team Member -->
 
             <div class="team-card" data-aos="zoom-in" data-aos-delay="300">
 
-                <img src="images/team/support.jpg" alt="Support">
+                <img src="https://images.openai.com/static-rsc-4/mfG2gzBR4nmypDW-S7tDRbohlBcsLGVV1c6jOj0GOs8JwSQLZl0GwYMXXQ6WoUmVmw6RRRvtmvNx2ORdq1G0Vj6gGXjYFQcDi5ZvExAf_J6XsqpnufhpIs0Vwuqs2O7SuDcy2-RPSHmV0mHg0MvH5M0VUIFo6EAb-ovgduTVLI--Mo2w5-vUYVS8kJB1Ml1a?purpose=inline" alt="Support">
 
                 <h3>Olivia Martin</h3>
 
@@ -1057,8 +1053,7 @@
     </a>
 
     <!-- Background Music -->
-
-    <audio
+     <audio
         id="coffeeMusic"
         loop>
 
@@ -1080,25 +1075,21 @@
 
     <script src="js/script.js"></script>
 
-<script src="js/menu.js"></script>
+    <script src="js/menu.js"></script>
 
-<div id="coffeeBlast"></div>
+    <script src="js/effects.js"></script>
 
-<script src="js/effects.js"></script>
+    <script>
 
-<script>
+        AOS.init({
+            duration:1000,
+            once:true
+        });
 
-AOS.init({
-    duration:1000,
-    once:true
-});
+        const lightbox = GLightbox();
 
-const lightbox = GLightbox();
-
-</script>
+    </script>
 
 </body>
+</html>
 
-
-    
-           

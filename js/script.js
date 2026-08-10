@@ -514,3 +514,17 @@ window.addEventListener("load",()=>{
     console.log("Website Loaded Successfully.");
 
 });
+// ==========================================
+//       CUSTOMER WELCOME
+// ==========================================
+
+const customerName = localStorage.getItem("customerName");
+
+const welcomeUser = document.getElementById("welcomeUser");
+
+if (customerName && welcomeUser) {
+
+    welcomeUser.textContent =
+        "☕ WELCOME, " + customerName + "!";
+
+}
