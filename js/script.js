@@ -204,8 +204,7 @@ if(localStorage.getItem("theme")==="dark"){
 
 const music=document.getElementById("coffeeMusic");
 
-const musicBtn=document.getElementById("music-toggle");
-
+const musicBtn = document.getElementById("music-btn");
 let isPlaying=false;
 
 musicBtn.addEventListener("click",()=>{
@@ -342,38 +341,6 @@ revealElements.forEach(element=>{
 
 });
 /*=====================================================
-            WELCOME TYPING EFFECT
-======================================================*/
-
-const welcomeText=document.querySelector(".home-content h1");
-
-if(welcomeText){
-
-    const originalText=welcomeText.innerHTML;
-
-    welcomeText.innerHTML="";
-
-    let index=0;
-
-    function typeText(){
-
-        if(index<originalText.length){
-
-            welcomeText.innerHTML+=originalText.charAt(index);
-
-            index++;
-
-            setTimeout(typeText,35);
-
-        }
-
-    }
-
-    typeText();
-
-}
-
-/*=====================================================
             SCROLL PROGRESS BAR
 ======================================================*/
 
@@ -465,19 +432,22 @@ window.addEventListener("mousemove",(e)=>{
             PREVENT EMPTY FORMS
 ======================================================*/
 
-document.querySelectorAll("form").forEach(form=>{
 
-    form.addEventListener("submit",(e)=>{
+document.querySelectorAll("form").forEach(form => {
 
+    // Skip the order form because it has its own API handler
+    if (form.id === "orderForm" || form.id === "reviewForm") return;
+
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
 
         alert("☕ Thank you! Your feedback has been received successfully.");
 
         form.reset();
-
     });
 
 });
+
 
 /*=====================================================
             FOOTER YEAR
@@ -528,3 +498,159 @@ if (customerName && welcomeUser) {
         "☕ WELCOME, " + customerName + "!";
 
 }
+
+// ==========================================
+// AROMA HAVEN - ORDER POPUP
+// ==========================================
+
+const orderModal = document.getElementById("orderModal");
+const orderProduct = document.getElementById("orderProduct");
+const orderQuantity = document.getElementById("orderQuantity");
+const orderTotal = document.getElementById("orderTotal");
+const closeOrder = document.getElementById("closeOrder");
+
+let selectedPrice = 0;
+
+// Open popup when clicking Order Now
+document.querySelectorAll(".order-btn").forEach(button => {
+    button.addEventListener("click", () => {
+
+        const menuCard = button.closest(".menu-card");
+
+        const productName = menuCard.querySelector("h3").textContent.trim();
+
+        const priceText = menuCard.querySelector(".price").textContent;
+        selectedPrice = Number(priceText.replace(/[^\d]/g, ""));
+
+        orderProduct.value = productName;
+        orderQuantity.value = 1;
+
+        orderTotal.textContent = "Total: ₹" + selectedPrice;
+
+        orderModal.style.display = "flex";
+    });
+});
+
+// Update total when quantity changes
+orderQuantity.addEventListener("input", () => {
+
+    let quantity = Number(orderQuantity.value);
+
+    orderTotal.textContent = "Total: ₹" + (selectedPrice * quantity);
+});
+
+// Close popup
+closeOrder.addEventListener("click", () => {
+    orderModal.style.display = "none";
+});
+
+// Close popup when clicking outside
+orderModal.addEventListener("click", (event) => {
+    if (event.target === orderModal) {
+        orderModal.style.display = "none";
+    }
+});
+
+// ==========================================
+// SAVE CUSTOMER ORDER IN MONGODB
+// ==========================================
+
+const orderForm = document.getElementById("orderForm");
+const orderMessage = document.getElementById("orderMessage");
+
+orderForm.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const orderData = {
+        name: document.getElementById("orderName").value.trim(),
+        phone: document.getElementById("orderPhone").value.trim(),
+        product: orderProduct.value,
+        quantity: Number(orderQuantity.value)
+    };
+
+    orderMessage.textContent = "Placing your order...";
+
+    try {
+
+        const response = await fetch("http://127.0.0.1:5000/api/orders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(orderData)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.error || "Order failed");
+        }
+
+        orderMessage.textContent =
+            "☕ " + result.message + " Total: ₹" + result.total;
+
+        orderMessage.style.color = "green";
+
+        orderForm.reset();
+        orderQuantity.value = 1;
+
+    } catch (error) {
+
+        orderMessage.textContent =
+            "❌ " + error.message;
+
+        orderMessage.style.color = "red";
+    }
+});
+
+
+// ==========================================
+// AROMA HAVEN - CUSTOMER REVIEWS API
+// ==========================================
+
+const reviewForm = document.getElementById("reviewForm");
+const reviewMessage = document.getElementById("reviewMessage");
+
+reviewForm.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const reviewData = {
+        name: document.getElementById("reviewName").value.trim(),
+        emoji: document.getElementById("reviewEmoji").value,
+        rating: Number(document.getElementById("reviewRating").value),
+        review: document.getElementById("reviewText").value.trim()
+    };
+
+    reviewMessage.textContent = "Submitting your review...";
+
+    try {
+
+        const response = await fetch("http://127.0.0.1:5000/api/reviews", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(reviewData)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.error || "Review submission failed");
+        }
+
+        reviewMessage.textContent = "❤️ " + result.message;
+        reviewMessage.style.color = "green";
+
+        reviewForm.reset();
+
+    } catch (error) {
+
+        reviewMessage.textContent = "❌ " + error.message;
+        reviewMessage.style.color = "red";
+
+    }
+
+});

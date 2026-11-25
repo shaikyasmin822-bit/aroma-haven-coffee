@@ -1432,7 +1432,6 @@ footer{
     color:#cccccc;
 
 }
-
 /* ==========================================
             BACK TO TOP
 ==========================================*/
@@ -1735,4 +1734,289 @@ footer{
         transform: translateY(0);
     }
 
+}
+
+/* ==========================================
+        AROMA HAVEN - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #17120f;
+    color: #f5e9df;
+}
+
+/* Section backgrounds */
+
+body.dark-mode .about,
+body.dark-mode .offers,
+body.dark-mode .team,
+body.dark-mode .contact {
+    background: #211914;
+}
+
+body.dark-mode .menu,
+body.dark-mode .reviews {
+    background: #191310;
+}
+
+body.dark-mode .gallery {
+    background: #17120f;
+}
+
+/* Section titles */
+
+body.dark-mode .section-title h2,
+body.dark-mode .section-title p {
+    color: #f5e9df;
+}
+
+/* About section */
+
+body.dark-mode .about-content h3 {
+    color: #e0a66f;
+}
+
+body.dark-mode .about-content p {
+    color: #d0c2b8;
+}
+
+body.dark-mode .feature,
+body.dark-mode .stat-card {
+    background: #30231c;
+    color: #f5e9df;
+}
+
+body.dark-mode .feature span,
+body.dark-mode .stat-card p {
+    color: #e8d9ce;
+}
+
+/* Menu section */
+
+body.dark-mode .menu-card {
+    background: #30231c;
+}
+
+body.dark-mode .menu-card h3 {
+    color: #e0a66f;
+}
+
+body.dark-mode .menu-card p {
+    color: #d0c2b8;
+}
+
+body.dark-mode .menu-search input {
+    background: #30231c;
+    color: white;
+}
+
+body.dark-mode .filter-btn {
+    background: #30231c;
+    color: #f5e9df;
+}
+
+/* Team section */
+
+body.dark-mode .team-card {
+    background: #30231c;
+}
+
+body.dark-mode .team-card h3 {
+    color: #e0a66f;
+}
+
+body.dark-mode .team-card p {
+    color: #d0c2b8;
+}
+
+/* Reviews section */
+
+body.dark-mode .review-card,
+body.dark-mode .feedback-form {
+    background: #30231c;
+    color: #f5e9df;
+}
+
+body.dark-mode .review-card h3,
+body.dark-mode .feedback-form h3 {
+    color: #e0a66f;
+}
+
+body.dark-mode .review-card p {
+    color: #d0c2b8;
+}
+
+/* Feedback form */
+
+body.dark-mode .feedback-form input,
+body.dark-mode .feedback-form select,
+body.dark-mode .feedback-form textarea {
+    background: #211914;
+    color: white;
+    border: 1px solid #604532;
+}
+
+body.dark-mode .feedback-form input::placeholder,
+body.dark-mode .feedback-form textarea::placeholder {
+    color: #c4b3a6;
+}
+
+/* Contact section */
+
+body.dark-mode .contact-info {
+    background: #30231c;
+}
+
+body.dark-mode .contact-info h3 {
+    color: #e0a66f;
+}
+
+body.dark-mode .contact-info p {
+    color: #d0c2b8;
+}
+
+/* Smooth theme transition */
+
+body,
+body section,
+body .menu-card,
+body .team-card,
+body .review-card,
+body .feature,
+body .stat-card,
+body .contact-info,
+body .feedback-form {
+    transition: background .4s ease, color .4s ease;
+}
+
+/* ==========================================
+        AROMA HAVEN ORDER POPUP
+========================================== */
+
+.order-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.order-box {
+    background: #FFF8F2;
+    color: #5C3D2E;
+    width: 100%;
+    max-width: 450px;
+    padding: 35px;
+    border-radius: 22px;
+    position: relative;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    animation: orderAppear 0.3s ease;
+}
+
+@keyframes orderAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.order-box h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: #5C3D2E;
+    margin-bottom: 8px;
+}
+
+.order-subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #777;
+}
+
+.order-close {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #5C3D2E;
+}
+
+.order-box label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.order-box input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 17px;
+    border: 1px solid #dcc5b1;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+.order-box input:focus {
+    border-color: #C68B59;
+}
+
+.order-box h3 {
+    text-align: center;
+    color: #C68B59;
+    margin: 10px 0 20px;
+}
+
+.order-submit {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background: #5C3D2E;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.order-submit:hover {
+    background: #C68B59;
+}
+
+#orderMessage {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* DARK MODE */
+
+body.dark-mode .order-box {
+    background: #30231c;
+    color: #f5e9df;
+}
+
+body.dark-mode .order-box h2,
+body.dark-mode .order-close {
+    color: #e0a66f;
+}
+
+body.dark-mode .order-box input {
+    background: #211914;
+    color: white;
+    border-color: #604532;
+}
+
+body.dark-mode .order-box label {
+    color: #f5e9df;
 }

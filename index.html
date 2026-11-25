@@ -885,57 +885,60 @@
 
         <!-- Feedback Form -->
 
-        <div class="feedback-form" data-aos="fade-up">
+        
+<div class="feedback-form" data-aos="fade-up">
 
-            <h3>Leave Your Feedback</h3>
+    <h3>Leave Your Feedback</h3>
 
-            <form>
+    <form id="reviewForm">
 
-                <input
-                    type="text"
-                    placeholder="Your Name"
-                    required>
+        <!-- Customer Name -->
+        <input
+            type="text"
+            id="reviewName"
+            name="name"
+            placeholder="Your Name"
+            required>
 
-                <select required>
+        <!-- Emoji Selection -->
+        <select id="reviewEmoji" name="emoji">
+            <option value="">Select Emoji (Optional)</option>
+            <option value="😊">😊</option>
+            <option value="😍">😍</option>
+            <option value="🤩">🤩</option>
+            <option value="☕">☕</option>
+            <option value="❤️">❤️</option>
+        </select>
 
-                    <option>Select Emoji</option>
+        <!-- Star Rating -->
+        <select id="reviewRating" name="rating" required>
+            <option value="">Select Your Rating</option>
+            <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+            <option value="4">⭐⭐⭐⭐ - Very Good</option>
+            <option value="3">⭐⭐⭐ - Good</option>
+            <option value="2">⭐⭐ - Average</option>
+            <option value="1">⭐ - Poor</option>
+        </select>
 
-                    <option>😊</option>
+        <!-- Customer Review -->
+        <textarea
+            id="reviewText"
+            name="review"
+            rows="5"
+            placeholder="Write Your Review..."
+            required></textarea>
 
-                    <option>😍</option>
+        <button
+            type="submit"
+            class="btn blast-btn">
+            Submit Review
+        </button>
 
-                    <option>🤩</option>
+        <p id="reviewMessage"></p>
 
-                    <option>☕</option>
+    </form>
 
-                    <option>❤️</option>
-
-                </select>
-
-                <div class="rating">
-
-                    ⭐⭐⭐⭐⭐
-
-                </div>
-
-                <textarea
-                    rows="5"
-                    placeholder="Write Your Review..."
-                    required></textarea>
-
-                <button
-                    type="submit"
-                    class="btn blast-btn">
-
-                    Submit Review
-
-                </button>
-
-            </form>
-
-        </div>
-
-    </section>
+</div>
 
     <!-- ===================================
               CONTACT SECTION
@@ -1032,7 +1035,12 @@
                 </a>
 
             </div>
-
+<p class="admin-link">
+    <a href="admin-login.html">
+        <i class="fa-solid fa-user-shield"></i>
+        Admin Login
+    </a>
+</p>
             <p class="copyright">
 
                 © 2026 Aroma Haven Coffee.
@@ -1043,6 +1051,69 @@
         </div>
 
     </footer>
+
+<!-- ==========================================
+        AROMA HAVEN ORDER POPUP
+========================================== -->
+
+<div class="order-modal" id="orderModal">
+
+    <div class="order-box">
+
+        <button type="button" class="order-close" id="closeOrder">
+            &times;
+        </button>
+
+        <h2>☕ Place Your Order</h2>
+
+        <p class="order-subtitle">
+            Freshly brewed happiness awaits!
+        </p>
+
+        <form id="orderForm">
+
+            <label>Selected Product</label>
+            <input type="text" id="orderProduct" readonly>
+
+            <label>Your Name</label>
+            <input
+                type="text"
+                id="orderName"
+                placeholder="Enter your name"
+                required>
+
+            <label>Phone Number</label>
+            <input
+                type="tel"
+                id="orderPhone"
+                placeholder="10-digit mobile number"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                required>
+
+            <label>Quantity</label>
+            <input
+                type="number"
+                id="orderQuantity"
+                value="1"
+                min="1"
+                max="20"
+                required>
+
+            <h3 id="orderTotal">Total: ₹0</h3>
+
+            <button type="submit" class="order-submit">
+                Confirm Order
+            </button>
+
+            <p id="orderMessage"></p>
+
+        </form>
+
+    </div>
+
+</div>
+
 
     <!-- Back To Top -->
 
@@ -1058,7 +1129,7 @@
         loop>
 
         <source
-            src="audio/cafe-music.mp3"
+            src="audio/cafe-music.mp3.mp3"
             type="audio/mpeg">
 
     </audio>
