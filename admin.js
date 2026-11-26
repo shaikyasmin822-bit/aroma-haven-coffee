@@ -11,7 +11,7 @@ async function loadDashboard() {
     try {
 
         const ordersResponse = await fetch(
-            "http://127.0.0.1:5000/api/orders",
+            "https://aroma-haven-coffee.onrender.com/api/orders",
             { credentials: "include" }
         );
 
@@ -22,7 +22,7 @@ async function loadDashboard() {
         const orders = await ordersResponse.json();
 
         const reviewsResponse = await fetch(
-            "http://127.0.0.1:5000/api/reviews",
+            "https://aroma-haven-coffee.onrender.com/api/reviews",
             { credentials: "include" }
         );
 
@@ -117,7 +117,7 @@ function escapeHTML(value) {
 async function checkAdminAccess() {
     try {
         const response = await fetch(
-            "http://127.0.0.1:5000/api/admin/check",
+            "https://aroma-haven-coffee.onrender.com/api/admin/check",
             { credentials: "include" }
         );
 
@@ -138,7 +138,7 @@ async function checkAdminAccess() {
 async function logoutAdmin() {
     try {
         const response = await fetch(
-            "http://127.0.0.1:5000/api/admin/logout",
+            "https://aroma-haven-coffee.onrender.com/api/admin/logout",
             {
                 method: "POST",
                 credentials: "include"
